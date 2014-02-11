@@ -1,0 +1,8 @@
+root { 
+    display: block;
+}
+div{
+background: activeborder;
+margin: 100px auto;
+color:brown;
+}
