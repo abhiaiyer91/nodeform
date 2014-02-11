@@ -21,8 +21,8 @@ var server = http.createServer(function (req,res){
         req.on('end', function () {
 
             var POST = qs.parse(body);
-            // use POST
-            res.end("name:"+POST.name+" age:"+POST.age);
+            // use POST 
+            res.end('title:  '+POST.title);
 
         });
         
