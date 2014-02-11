@@ -18,11 +18,21 @@ var server = http.createServer(function (req,res){
             body += data;
             console.log('got data:'+data);
         });
+
+
         req.on('end', function () {
 
             var POST = qs.parse(body);
-            // use POST 
-            res.end('title:  '+POST.title);
+    
+            res.write("<h1>---</h1>", 'utf8');    
+            res.write("<h1>title: "+POST.title+"</h1>", 'utf8');
+            res.write("<h1>layout: "+POST.layout+"</h1>", 'utf8');
+            res.write("<h1>image: "+POST.image+"</h1>", 'utf8');
+            res.write("<h1>summary: "+POST.summary+"</h1>", 'utf8');
+            res.write("<h1> content: "+POST.content+"</h1>", 'utf8');
+            res.write("<h1>---</h1>", 'utf8');   
+            res.end();
+
 
         });
         
@@ -37,7 +47,7 @@ var server = http.createServer(function (req,res){
     res.end(data);    
     });
 
-    else if(url_parts.pathname == '/getData'){
+    else if(url_parts.pathname == '/getData.md'){
          console.log('Serving the Got Data.');
         getData(res,url_parts);
     }
